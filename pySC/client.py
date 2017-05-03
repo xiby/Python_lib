@@ -1,5 +1,6 @@
 from socket import *
 
+
 HOST='localhost'
 PORT=22354
 BUFSIZE=1024

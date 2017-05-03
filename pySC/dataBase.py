@@ -12,6 +12,7 @@ class libdb:
             self.__db=sqlite3.connect("../myLib.db")           #connect to database
             self.__db.execute("create table catalog (name varchar(50) ,publicher varchar(80),addYear integer,addMonth integer,addDay integer,state integer)")
             self.Cursor=self.__db.cursor()
+            self.bookNum=0
             print("刚刚创建了数据库")
         else:
             self.__db=sqlite3.connect("../myLib.db")           #connect to database
@@ -24,7 +25,7 @@ class libdb:
     def getCursor(self):                                #get the cursor for query
         return self.Cursor
 
-    def getNum():                                       #get the numbers of my books                             
+    def getNum(self):                                       #get the numbers of my books                             
         return self.bookNum
 
     def insert(self,book):                              #insert a book to my library
@@ -50,4 +51,4 @@ class libdb:
         return self.Cursor.fetchall()
 
     def update(self,tmpbook):
-        sql="update catalog set addYear=? addMonth=? addDay
+        pass
