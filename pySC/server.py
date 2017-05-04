@@ -38,10 +38,13 @@ while True:
             m=myLib.insert(book)
         elif data[0]=='2':              #表明此时要查询全部数据
             m=(myLib.search())
+            print(m)
             inf=''
             for item in m:
                 for ditel in item:
-                    inf=inf+str(ditel)
+                    inf=inf+str(ditel)+' '
+                inf=inf+','
+            print(inf)
             m=inf
         elif data[0]=='3':              #表明此时要删除数据
             data[0]=dirct.get('3')

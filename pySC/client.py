@@ -12,8 +12,22 @@ while True:
     data=input('>')
     if not data:
         break
-    data=data.encode('utf-8')
-    sc.sendto(data,ADDR)
-    msg,addr=sc.recvfrom(BUFSIZE)
-    print(msg.decode('utf-8'))
+    if data=='2':
+        data=data.encode('utf-8')
+        sc.sendto(data,ADDR)
+        msg,addr=sc.recvfrom(BUFSIZE)
+        msg=msg.decode('utf-8')
+        books=list()
+        msg=msg.split(',')
+        for item in msg:
+            if len(item)==0:
+                continue
+            item =item.split(" ")
+            books.append(item)
+        print(books)
+    else:
+        data=data.encode('utf-8')
+        sc.sendto(data,ADDR)
+        msg,addr=sc.recvfrom(BUFSIZE)
+        print(msg.decode('utf-8'))
 sc.close()

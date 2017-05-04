@@ -96,4 +96,5 @@ ENV/
 /code/__pycache__
 /code/test.py
 /pySC/.vscode
+/code/test.py
 
