@@ -32,9 +32,10 @@ class libdb:
         try:
             self.__db.execute("insert into catalog values (?,?,?,?,?,?)",book)
             self.__db.commit()
+            return 'insert success'
         except sqlite3.IntegrityError as e:
             print(book,end=" ")
-            print("该记录已经存在，若要更新，请选择更新选项")
+            return "该记录已经存在，若要更新，请选择更新选项"
 
     def search(self):                                   #search all books
         self.Cursor.execute("select * from catalog")
