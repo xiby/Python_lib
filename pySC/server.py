@@ -49,9 +49,25 @@ while True:
         elif data[0]=='3':              #表明此时要删除数据
             data[0]=dirct.get('3')
         elif data[0]=='4':              #按照书名查询
-            pass
+            name=data[1]
+            m=myLib.searchByName(name)
+            inf=''
+            for item in m:
+                for ditel in item:
+                    inf=inf+str(ditel)+' '
+                inf=inf+','
+            print(inf)
+            m=inf
         elif data[0]=='5':              #按照出版社查询
-            pass
+            pub=data[1]
+            m=myLib.searchByPub(pub)
+            inf=''
+            for item in m:
+                for ditel in item:
+                    inf=inf+str(ditel)+' '
+                inf=inf
+            print(inf)
+            m=inf
         elif data[0]=='6':              #按照日期查询
             pass
         elif data[0]=='0':
