@@ -57,6 +57,11 @@ while True:
         elif data[0]=='0':
             sc.close()
             break
+        elif data[0]=='7':              #此时要更新数据
+            book=list()
+            book.append(data[1])
+            book.append(data[2])
+            m=myLib.finish(book)
         else:
             flag=False
         if flag:

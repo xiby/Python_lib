@@ -20,10 +20,9 @@ while True:
         books=list()
         msg=msg.split(',')
         for item in msg:
-            if len(item)==0:
-                continue
-            item =item.split(" ")
-            books.append(item)
+            if len(item)!=0:
+                item =item.split(" ")
+                books.append(item)
         print(books)
     else:
         data=data.encode('utf-8')

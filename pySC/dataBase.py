@@ -52,5 +52,9 @@ class libdb:
         self.Cursor.execute(sql)
         return self.Cursor.fetchall()
 
-    def update(self,tmpbook):
-        pass
+    def finish(self,book):
+        sql="update catalog set state=0 where name="+"'"+book[0]+"'"+"and publicher="+"'"+book[1]+"'"
+        self.__db.execute(sql)
+        self.__db.commit()
+        return '更新成功'
+
