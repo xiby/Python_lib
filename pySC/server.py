@@ -43,6 +43,7 @@ while True:
             for item in m:
                 for ditel in item:
                     inf=inf+str(ditel)+' '
+                inf=inf.strip()
                 inf=inf+','
             print(inf)
             m=inf
@@ -55,6 +56,7 @@ while True:
             for item in m:
                 for ditel in item:
                     inf=inf+str(ditel)+' '
+                inf=inf.strip()
                 inf=inf+','
             print(inf)
             m=inf
@@ -65,6 +67,7 @@ while True:
             for item in m:
                 for ditel in item:
                     inf=inf+str(ditel)+' '
+                inf=inf.strip()
                 inf=inf
             print(inf)
             m=inf
