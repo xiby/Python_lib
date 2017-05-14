@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication,QWidget
+import pySC.dataBase
 import tmpUI
 if __name__=='__main__':
     app=QApplication(sys.argv)

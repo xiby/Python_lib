@@ -6,16 +6,16 @@ class libdb:
     def __init__(self):
         print("calling _init_")
         dirlist=list()
-        dirlist=os.listdir("../")
+        dirlist=os.listdir("./")
         if "myLib.db" not in dirlist:
             print("未创建数据库")
-            self.__db=sqlite3.connect("../myLib.db")           #connect to database
+            self.__db=sqlite3.connect("./myLib.db")           #connect to database
             self.__db.execute("create table catalog (name varchar(50) ,publicher varchar(80),addYear integer,addMonth integer,addDay integer,state integer,primary key(name,publicher))")
             self.Cursor=self.__db.cursor()
             self.bookNum=0
             print("刚刚创建了数据库")
         else:
-            self.__db=sqlite3.connect("../myLib.db")           #connect to database
+            self.__db=sqlite3.connect("./myLib.db")           #connect to database
             self.Cursor=self.__db.cursor()
     def getDB(self):                                    #get the database
         return self.__db
