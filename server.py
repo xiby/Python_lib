@@ -34,7 +34,7 @@ while True:
             book.append(now[1])
             book.append(now[2])
             book.append(1)
-            print(book)
+            # print(book)
             m=myLib.insert(book)
         elif data[0]=='2':              #表明此时要查询全部数据
             m=(myLib.search())
@@ -68,11 +68,19 @@ while True:
                 for ditel in item:
                     inf=inf+str(ditel)+' '
                 inf=inf.strip()
-                inf=inf
+                inf=inf+','
             print(inf)
             m=inf
-        elif data[0]=='6':              #按照日期查询
-            pass
+        elif data[0]=='6':              #查询正在阅读的书目
+            m=myLib.search_reading()
+            inf=""
+            for item in m:
+                for ditel in item:
+                    inf=inf+str(ditel)+' '
+                inf=inf.strip()
+                inf=inf+','
+            m=inf
+            
         elif data[0]=='0':
             sc.close()
             break

@@ -53,8 +53,22 @@ class libdb:
         return self.Cursor.fetchall()
 
     def finish(self,book):
-        sql="update catalog set state=0 where name="+"'"+book[0]+"'"+"and publicher="+"'"+book[1]+"'"
-        self.__db.execute(sql)
-        self.__db.commit()
-        return '更新成功'
+        sql='select state from catalog where publicher='+"'"+book[1]+"'"+'and name='+"'"+book[0]+"'"
+        self.Cursor.execute(sql)
+        log=self.Cursor.fetchall()
+        # print(log)
+        if len(log)==0:
+            return '记录不存在'
+        elif log[0][0]==0:
+            return '更新失败，这本书已经读完！'
+        else:
+            sql="update catalog set state=0 where name="+"'"+book[0]+"'"+"and publicher="+"'"+book[1]+"'"
+            self.__db.execute(sql)
+            self.__db.commit()
+            return '更新成功'
+
+    def search_reading(self):
+        sql='select * from catalog where state='+"'"+'1'+"'"
+        self.Cursor.execute(sql)
+        return self.Cursor.fetchall()
 
